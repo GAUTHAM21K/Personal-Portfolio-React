@@ -13,7 +13,7 @@ const Skills = ({ isDev }) => {
   return (
     <section
       id="skills"
-      className="py-12 md:py-20 px-6 md:px-10 min-h-[100svh] flex flex-col justify-center bg-main-bg text-main-text transition-colors duration-500 overflow-hidden"
+      className="py-12 md:py-20 px-6 md:px-10 min-h-svh flex flex-col justify-center bg-main-bg text-main-text transition-colors duration-500 overflow-hidden"
     >
       <div className="max-w-6xl mx-auto w-full">
         {/* Title: Adjusted size for mobile */}
@@ -43,13 +43,13 @@ const Skills = ({ isDev }) => {
                 </div>
 
                 {/* Progress Bar Container */}
-                <div className="h-[2px] md:h-[3px] w-full bg-white/5 relative overflow-hidden">
+                <div className="h-0.5 md:h-0.75 w-full bg-white/5 relative overflow-hidden">
                   <motion.div
                     initial={{ width: 0 }}
                     whileInView={{ width: skill.level }}
                     viewport={{ once: true }}
                     transition={{ duration: 1.5, ease: "circOut" }}
-                    className="absolute h-full bg-[var(--accent)] shadow-[0_0_15px_var(--accent)]"
+                    className="absolute h-full bg-(--accent) shadow-[0_0_15px_var(--accent)]"
                   />
                 </div>
 

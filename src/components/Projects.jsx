@@ -90,7 +90,7 @@ const Projects = ({ isDev }) => {
         <div className="bg-[#161b22] px-4 py-2 flex items-center justify-between border-b border-white/5 font-mono">
           <div className="flex items-center gap-2">
             <Terminal size={12} className="text-accent" />
-            <span className="text-[9px] md:text-[10px] text-white/40 truncate max-w-[120px] md:max-w-none">
+            <span className="text-[9px] md:text-[10px] text-white/40 truncate max-w-30 md:max-w-none">
               {proj.title.toLowerCase()}.sh
             </span>
           </div>
@@ -162,7 +162,7 @@ const Projects = ({ isDev }) => {
                 className="relative"
               >
                 {/* Timeline Dot */}
-                <div className="absolute -left-[31px] md:-left-[37px] top-1 w-3 md:h-4 h-3 md:w-4 rounded-full bg-[#0d1117] border-2 border-accent shadow-[0_0_10px_var(--accent)]" />
+                <div className="absolute -left-7.75 md:-left-9.25 top-1 w-3 md:h-4 h-3 md:w-4 rounded-full bg-[#0d1117] border-2 border-accent shadow-[0_0_10px_var(--accent)]" />
 
                 <div className="font-mono space-y-2">
                   <div className="flex flex-wrap items-center gap-3 md:gap-4 text-[9px] md:text-[10px] tracking-widest uppercase opacity-40">

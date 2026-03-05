@@ -84,7 +84,7 @@ export const Contact = ({ isDev }) => {
           </h2>
 
           <div
-            className={`h-1 w-20 mt-4 ${isDev ? "bg-[#58a6ff]" : "bg-gradient-to-r from-[#d44d8b] via-[#fb923c] to-[#9333ea]"}`}
+            className={`h-1 w-20 mt-4 ${isDev ? "bg-[#58a6ff]" : "bg-linear-to-r from-[#d44d8b] via-[#fb923c] to-[#9333ea]"}`}
           />
         </div>
 

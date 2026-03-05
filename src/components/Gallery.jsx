@@ -62,7 +62,7 @@ const Gallery = () => {
       {/* 1. FEATURED HORIZONTAL SLIDER */}
       <div className="space-y-6">
         <div className="flex items-center gap-4 px-4">
-          <div className="h-[1px] w-12 bg-accent opacity-50" />
+          <div className="h-px w-12 bg-accent opacity-50" />
           <span className="text-[10px] uppercase tracking-[0.3em] opacity-50 font-bold">
             Featured Works
           </span>
@@ -80,13 +80,13 @@ const Gallery = () => {
             {featuredArt.map((art) => (
               <motion.div
                 key={art.id}
-                className="relative w-[400px] h-[500px] bg-zinc-900 group shadow-2xl overflow-hidden rounded-sm"
+                className="relative w-100 h-125 bg-zinc-900 group shadow-2xl overflow-hidden rounded-sm"
               >
                 <div
-                  className="absolute inset-0 bg-cover bg-center grayscale-[40%] group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105"
+                  className="absolute inset-0 bg-cover bg-center grayscale-40 group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105"
                   style={{ backgroundImage: `url(${art.path})` }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-80" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/90 via-transparent to-transparent opacity-80" />
                 <div className="absolute inset-0 p-8 flex flex-col justify-end">
                   <span className="text-accent font-bold italic text-[10px] tracking-[0.4em] mb-1 uppercase">
                     {art.type}
@@ -130,7 +130,7 @@ const Gallery = () => {
                   key={art.id}
                   initial={{ scale: 0.9, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
-                  className="aspect-[3/4] bg-zinc-800 relative group overflow-hidden"
+                  className="aspect-3/4 bg-zinc-800 relative group overflow-hidden"
                 >
                   <div
                     className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"

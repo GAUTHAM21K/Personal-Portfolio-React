@@ -147,8 +147,8 @@ const CreativeChronicle = () => {
     <div className="w-full flex justify-center py-6 md:py-12 px-4">
       <div className="flex flex-col lg:flex-row gap-6 max-w-5xl w-full">
         {/* --- MAIN STUDIO (GAME) --- */}
-        <div className="relative flex-1 p-4 md:p-6 rounded-[1.5rem] md:rounded-[2rem] border bg-[#eaddd7] border-black/5 shadow-xl transition-all duration-700 overflow-hidden">
-          {/* Top Status Bar */}
+        <div className="relative flex-1 p-4 md:p-6 rounded-3xl md:rounded-4xl border bg-[#eaddd7] border-black/5 shadow-xl transition-all duration-700 overflow-hidden">
+          {/* Top Status Bar */}.
           <div className="relative z-50 flex justify-between items-center mb-4 md:mb-6 font-sans text-[9px] md:text-[10px] tracking-[0.2em] uppercase opacity-50 font-bold">
             <div className="flex items-center gap-2 text-[#d44d8b]">
               <Brush size={12} /> ATELIER_ACTIVE
@@ -157,9 +157,8 @@ const CreativeChronicle = () => {
               Flow: {creativeFlow.toString().padStart(4, "0")}
             </div>
           </div>
-
           {/* MOBILE RESPONSIVE CANVAS CONTAINER */}
-          <div className="relative w-full overflow-hidden flex justify-center items-center h-[180px] md:h-[220px]">
+          <div className="relative w-full overflow-hidden flex justify-center items-center h-45 md:h-55">
             <canvas
               ref={canvasRef}
               width={800}
@@ -173,7 +172,6 @@ const CreativeChronicle = () => {
               }}
             />
           </div>
-
           <AnimatePresence>
             {sessionState !== "ACTIVE" && (
               <motion.div

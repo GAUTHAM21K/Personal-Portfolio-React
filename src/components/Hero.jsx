@@ -8,7 +8,7 @@ const Hero = ({ isDev }) => {
   return (
     <section
       id="about"
-      className="relative min-h-[100svh] w-full flex flex-col items-center justify-center overflow-hidden px-6 md:px-10 bg-main-bg text-main-text transition-colors duration-500"
+      className="relative min-h-svh w-full flex flex-col items-center justify-center overflow-hidden px-6 md:px-10 bg-main-bg text-main-text transition-colors duration-500"
     >
       {/* ARTIST BACKGROUND: Optimized for Mobile Viewports */}
       {!isDev && (
@@ -88,7 +88,7 @@ const Hero = ({ isDev }) => {
               </motion.div>
               <h1
                 className="text-5xl sm:text-7xl md:text-9xl font-black tracking-tighter mb-6 
-                animate-gradient-text bg-gradient-to-r 
+                animate-gradient-text bg-linear-to-r 
                 from-[#d44d8b] via-[#fb923c] to-[#6366f1] 
                 bg-clip-text text-transparent 
                 drop-shadow-[0_2px_10px_rgba(0,0,0,0.15)] leading-none"

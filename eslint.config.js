@@ -27,8 +27,7 @@ export default defineConfig([
       "no-unused-vars": [
         "error",
         {
-          varsIgnorePattern: "^[A-Z_]", // allow unused vars like MOTION, DEBUG
-          argsIgnorePattern: "^_", // allow unused function args starting with _
+          varsIgnorePattern: "^motion|^[A-Z_]",
         },
       ],
     },

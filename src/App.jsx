@@ -43,7 +43,7 @@ function App() {
 
       {/* 3. Subtle Grain Overlay for Artistic Depth */}
       {!isDev && (
-        <div className="fixed inset-0 pointer-events-none opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/natural-paper.png')] z-[99]" />
+        <div className="fixed inset-0 pointer-events-none opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/natural-paper.png')] z-99" />
       )}
     </div>
   );

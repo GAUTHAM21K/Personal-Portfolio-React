@@ -82,7 +82,7 @@ const ThemeToggle = ({ isDev, setIsDev }) => {
             <Palette size={18} style={{ color: "var(--accent)" }} />
           )}
         </motion.div>
-        <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-transparent via-white/10 to-white/20 pointer-events-none" />
+        <div className="absolute inset-0 rounded-full bg-linear-to-tr from-transparent via-white/10 to-white/20 pointer-events-none" />
       </motion.div>
 
       {/* Background Animated Clouds/Stars Effect */}

@@ -83,7 +83,7 @@ export const Footer = ({ isDev }) => {
       {/* BACKGROUND FLARE: Dev (Grid) / Art (Blur) */}
       <div className="absolute inset-0 pointer-events-none opacity-20">
         {isDev ? (
-          <div className="h-full w-full bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
+          <div className="h-full w-full bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size[24px_24px]" />
         ) : (
           <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-[#d44d8b] blur-[120px] rounded-full opacity-20" />
         )}
@@ -123,7 +123,7 @@ export const Footer = ({ isDev }) => {
                 <motion.div
                   initial={{ width: 0 }}
                   whileInView={{ width: "100%" }}
-                  className="h-[1px] bg-gradient-to-r from-[#d44d8b] to-transparent mt-2"
+                  className="h-1px bg-linear-to-r from-[#d44d8b] to-transparent mt-2"
                 />
                 <p className="text-[#2a2a2a]/40 text-[10px] uppercase tracking-[0.6em] mt-3 font-bold">
                   Visual Archives
@@ -170,7 +170,7 @@ export const Footer = ({ isDev }) => {
                 <span className="text-green-500 animate-pulse">ACTIVE</span>
               </div>
               <div className="text-[#58a6ff] text-sm">UPTIME: {uptime}</div>
-              <div className="w-full bg-white/5 h-[2px] mt-2 overflow-hidden">
+              <div className="w-full bg-white/5 h-2px mt-2 overflow-hidden">
                 <motion.div
                   animate={{ x: ["-100%", "100%"] }}
                   transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
@@ -184,7 +184,7 @@ export const Footer = ({ isDev }) => {
                 size={20}
                 className="text-[#d44d8b] ml-auto mb-2 opacity-40"
               />
-              <p className="font-serif italic text-sm text-[#2a2a2a]/60 max-w-[200px]">
+              <p className="font-serif italic text-sm text-[#2a2a2a]/60 max-w-50">
                 "Capturing the ephemeral through code and graphite."
               </p>
               <p className="text-[9px] text-[#2a2a2a]/30 uppercase tracking-widest pt-2 italic">

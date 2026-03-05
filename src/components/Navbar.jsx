@@ -87,7 +87,7 @@ const Navbar = ({ isDev, setIsDev }) => {
                   className="font-serif italic text-xl text-[#2a2a2a] flex items-center gap-2"
                 >
                   <Sparkles size={16} className="text-[#d44d8b]" />
-                  <span className="tracking-tighter">Gautham.</span>
+                  <span className="tracking-tighter">Gautham.Art</span>
                 </motion.div>
               ) : (
                 <div className="flex gap-6">
