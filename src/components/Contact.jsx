@@ -12,6 +12,7 @@ import {
   Sparkles,
   Activity,
 } from "lucide-react";
+
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 export const Contact = ({ isDev }) => {
@@ -61,19 +62,12 @@ export const Contact = ({ isDev }) => {
         <div className="flex flex-col items-center mb-12 mt-4">
           <div className="w-32 h-32 mb-6">
             <DotLottieReact
+              src={isDev ? "/dev_animation.lottie" : "/art_animation.lottie"}
               autoplay
               loop
-              // New stable public URLs
-              src={
-                isDev
-                  ? "src/assets/dev_animation.lottie"
-                  : "src/assets/art_animation.lottie"
-              }
+              // dotlottie-react uses 'onLoad' instead of 'onEvent'
+              onLoad={() => console.log("Lottie loaded successfully")}
               style={{ height: "100%", width: "100%" }}
-              // Fallback if the player fails to load
-              onEvent={(event) => {
-                if (event === "error") console.error("Lottie failed to load");
-              }}
             />
           </div>
 

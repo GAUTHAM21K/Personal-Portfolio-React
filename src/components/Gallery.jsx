@@ -13,40 +13,40 @@ const Gallery = () => {
       id: "f2",
       title: "Portrait Study",
       type: "Digital Art",
-      path: "src/assets/art/face.jpg",
+      path: "/art/face.jpg", // Corrected path
     },
     {
       id: "f1",
       title: "Portrait",
       type: "Digital Art",
-      path: "src/assets/art/zendaya.jpg",
+      path: "/art/zendaya.jpg", // Corrected path
     },
     {
       id: "f3",
       title: "Commission Work",
       type: "Digital Art",
-      path: "src/assets/art/sm.jpg",
+      path: "/art/sm.jpg", // Corrected path
     },
   ];
 
-  // The rest of your collection
+  // ARCHIVE COLLECTION (Updated Paths)
   const archiveArt = [
-    { id: "a1", path: "src/assets/art/1.jpg" },
-    { id: "a2", path: "src/assets/art/2.jpg" },
-    { id: "a3", path: "src/assets/art/3.jpg" },
-    { id: "a4", path: "src/assets/art/4.jpg" },
-    { id: "a5", path: "src/assets/art/5.jpg" },
-    { id: "a6", path: "src/assets/art/6.jpg" },
-    { id: "a7", path: "src/assets/art/7.jpg" },
-    { id: "a8", path: "src/assets/art/8.jpg" },
-    { id: "a9", path: "src/assets/art/9.jpg" },
-    { id: "a10", path: "src/assets/art/10.jpg" },
-    { id: "a11", path: "src/assets/art/11.jpg" },
-    { id: "a12", path: "src/assets/art/12.jpg" },
-    { id: "a13", path: "src/assets/art/13.jpeg" },
-    { id: "a14", path: "src/assets/art/14.jpeg" },
-    { id: "a15", path: "src/assets/art/15.jpeg" },
-    { id: "a16", path: "src/assets/art/16.jpg" },
+    { id: "a1", path: "/art/1.jpg" },
+    { id: "a2", path: "/art/2.jpg" },
+    { id: "a3", path: "/art/3.jpg" },
+    { id: "a4", path: "/art/4.jpg" },
+    { id: "a5", path: "/art/5.jpg" },
+    { id: "a6", path: "/art/6.jpg" },
+    { id: "a7", path: "/art/7.jpg" },
+    { id: "a8", path: "/art/8.jpg" },
+    { id: "a9", path: "/art/9.jpg" },
+    { id: "a10", path: "/art/10.jpg" },
+    { id: "a11", path: "/art/11.jpg" },
+    { id: "a12", path: "/art/12.jpg" },
+    { id: "a13", path: "/art/13.jpeg" },
+    { id: "a14", path: "/art/14.jpeg" },
+    { id: "a15", path: "/art/15.jpeg" },
+    { id: "a16", path: "/art/16.jpg" },
   ];
 
   useEffect(() => {
