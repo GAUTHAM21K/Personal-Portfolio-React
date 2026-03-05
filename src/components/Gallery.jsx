@@ -1,0 +1,152 @@
+import { motion, AnimatePresence } from "framer-motion";
+import { useRef, useEffect, useState } from "react";
+import { ChevronDown, ChevronUp, Image as ImageIcon } from "lucide-react";
+
+const Gallery = () => {
+  const containerRef = useRef(null);
+  const [scrollWidth, setScrollWidth] = useState(0);
+  const [showAll, setShowAll] = useState(false);
+
+  // Featured pieces for the horizontal slider
+  const featuredArt = [
+    {
+      id: "f2",
+      title: "Portrait Study",
+      type: "Digital Art",
+      path: "src/assets/art/face.jpg",
+    },
+    {
+      id: "f1",
+      title: "Portrait",
+      type: "Digital Art",
+      path: "src/assets/art/zendaya.jpg",
+    },
+    {
+      id: "f3",
+      title: "Commission Work",
+      type: "Digital Art",
+      path: "src/assets/art/sm.jpg",
+    },
+  ];
+
+  // The rest of your collection
+  const archiveArt = [
+    { id: "a1", path: "src/assets/art/1.jpg" },
+    { id: "a2", path: "src/assets/art/2.jpg" },
+    { id: "a3", path: "src/assets/art/3.jpg" },
+    { id: "a4", path: "src/assets/art/4.jpg" },
+    { id: "a5", path: "src/assets/art/5.jpg" },
+    { id: "a6", path: "src/assets/art/6.jpg" },
+    { id: "a7", path: "src/assets/art/7.jpg" },
+    { id: "a8", path: "src/assets/art/8.jpg" },
+    { id: "a9", path: "src/assets/art/9.jpg" },
+    { id: "a10", path: "src/assets/art/10.jpg" },
+    { id: "a11", path: "src/assets/art/11.jpg" },
+    { id: "a12", path: "src/assets/art/12.jpg" },
+    { id: "a13", path: "src/assets/art/13.jpeg" },
+    { id: "a14", path: "src/assets/art/14.jpeg" },
+    { id: "a15", path: "src/assets/art/15.jpeg" },
+    { id: "a16", path: "src/assets/art/16.jpg" },
+  ];
+
+  useEffect(() => {
+    if (containerRef.current) {
+      setScrollWidth(
+        containerRef.current.scrollWidth - containerRef.current.offsetWidth,
+      );
+    }
+  }, []);
+
+  return (
+    <div className="py-12 space-y-20">
+      {/* 1. FEATURED HORIZONTAL SLIDER */}
+      <div className="space-y-6">
+        <div className="flex items-center gap-4 px-4">
+          <div className="h-[1px] w-12 bg-accent opacity-50" />
+          <span className="text-[10px] uppercase tracking-[0.3em] opacity-50 font-bold">
+            Featured Works
+          </span>
+        </div>
+
+        <motion.div
+          ref={containerRef}
+          className="cursor-grab active:cursor-grabbing overflow-hidden"
+        >
+          <motion.div
+            drag="x"
+            dragConstraints={{ right: 0, left: -scrollWidth }}
+            className="flex gap-8 w-max px-4"
+          >
+            {featuredArt.map((art) => (
+              <motion.div
+                key={art.id}
+                className="relative w-[400px] h-[500px] bg-zinc-900 group shadow-2xl overflow-hidden rounded-sm"
+              >
+                <div
+                  className="absolute inset-0 bg-cover bg-center grayscale-[40%] group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105"
+                  style={{ backgroundImage: `url(${art.path})` }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-80" />
+                <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                  <span className="text-accent font-bold italic text-[10px] tracking-[0.4em] mb-1 uppercase">
+                    {art.type}
+                  </span>
+                  <h3 className="text-white text-2xl font-black italic tracking-tighter uppercase">
+                    {art.title}
+                  </h3>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </motion.div>
+      </div>
+
+      {/* 2. EXPANDABLE ARCHIVE GRID */}
+      <div className="flex flex-col items-center px-4">
+        <button
+          onClick={() => setShowAll(!showAll)}
+          className="group flex flex-col items-center gap-2 mb-12 hover:text-accent transition-colors"
+        >
+          <span className="text-[10px] uppercase tracking-[0.5em] font-bold">
+            {showAll ? "Hide Archives" : "View Full Collection"}
+          </span>
+          {showAll ? (
+            <ChevronUp size={16} />
+          ) : (
+            <ChevronDown size={16} className="animate-bounce" />
+          )}
+        </button>
+
+        <AnimatePresence>
+          {showAll && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              className="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 overflow-hidden"
+            >
+              {archiveArt.map((art) => (
+                <motion.div
+                  key={art.id}
+                  initial={{ scale: 0.9, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  className="aspect-[3/4] bg-zinc-800 relative group overflow-hidden"
+                >
+                  <div
+                    className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                    style={{ backgroundImage: `url(${art.path})` }}
+                  />
+                  <div className="absolute inset-0 bg-accent/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <ImageIcon className="text-white" size={24} />
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </div>
+  );
+};
+
+export default Gallery;

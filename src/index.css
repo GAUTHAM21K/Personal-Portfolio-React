@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+
+
+
+:root {
+  /* Artist Mode: "Warm Studio" - Less eye strain, high color depth */
+  --main-bg: #eaddd7; /* Soft, warm parchment gray */
+  --main-text: #2a2421; /* Deep charcoal with a hint of brown */
+  --accent: #d44d8b; /* Sophisticated rose */
+  --font-main: "Inter", sans-serif;
+}
+
+/* Explicitly re-map the variables for the dev theme */
+.theme-dev {
+  /* Professional Dev: "Obsidian & Cobalt" */
+  --main-bg: #0d1117;     /* GitHub Dark background */
+  --main-text: #c9d1d9;   /* Soft off-white text */
+  --accent: #58a6ff;      /* Professional blue accent */
+  --font-main: "Fira Code", monospace;
+  
+  /* Additional depth variables */
+  --card-bg: #161b22;
+  --border-color: #30363d;
+}
+
+body {
+  background-color: var(--main-bg);
+  color: var(--main-text);
+  font-family: var(--font-main);
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+@layer utilities {
+  .animate-gradient-text {
+    background-size: 200% auto;
+    animation: gradient-flow 5s linear infinite;
+  }
+
+  @keyframes gradient-flow {
+    0% { background-position: 0% center; }
+    50% { background-position: 100% center; }
+    100% { background-position: 0% center; }
+  }
+}
+
+@keyframes gradient-text {
+  0% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+  100% { background-position: 0% center; }
+}
+
+.animate-gradient-text {
+  animation: gradient-text 5s ease infinite;
+}
