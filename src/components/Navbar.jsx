@@ -17,7 +17,7 @@ const Navbar = ({ isDev, setIsDev }) => {
 
   const handleDownload = () => {
     const link = document.createElement("a");
-    link.href = "/Gautham_Resume1.pdf";
+    link.href = "/Gautham_Resume.pdf";
     link.download = "Gautham_Krishna_Resume.pdf";
     document.body.appendChild(link);
     link.click();
