@@ -7,29 +7,27 @@ const Gallery = () => {
   const [scrollWidth, setScrollWidth] = useState(0);
   const [showAll, setShowAll] = useState(false);
 
-  // Featured pieces for the horizontal slider
   const featuredArt = [
     {
       id: "f2",
       title: "Portrait Study",
       type: "Digital Art",
-      path: "/art/face.jpg", // Corrected path
+      path: "/art/face.jpg",
     },
     {
       id: "f1",
       title: "Portrait",
       type: "Digital Art",
-      path: "/art/zendaya.jpg", // Corrected path
+      path: "/art/zendaya.jpg",
     },
     {
       id: "f3",
       title: "Commission Work",
       type: "Digital Art",
-      path: "/art/sm.jpg", // Corrected path
+      path: "/art/sm.jpg",
     },
   ];
 
-  // ARCHIVE COLLECTION (Updated Paths)
   const archiveArt = [
     { id: "a1", path: "/art/1.jpg" },
     { id: "a2", path: "/art/2.jpg" },
@@ -49,14 +47,26 @@ const Gallery = () => {
     { id: "a16", path: "/art/16.jpg" },
   ];
 
+  // Updated useEffect to handle dynamic resizing and image loading
   useEffect(() => {
-    if (containerRef.current) {
-      setScrollWidth(
-        containerRef.current.scrollWidth - containerRef.current.offsetWidth,
-      );
-    }
-  }, []);
+    const calculateWidth = () => {
+      if (containerRef.current) {
+        // Measure total width minus visible width to find the scroll distance
+        setScrollWidth(
+          containerRef.current.scrollWidth - containerRef.current.offsetWidth,
+        );
+      }
+    };
 
+    // Wait for images/DOM to settle before measuring
+    const timer = setTimeout(calculateWidth, 100);
+    window.addEventListener("resize", calculateWidth);
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("resize", calculateWidth);
+    };
+  }, []);
   return (
     <div className="py-12 space-y-20">
       {/* 1. FEATURED HORIZONTAL SLIDER */}
@@ -68,25 +78,26 @@ const Gallery = () => {
           </span>
         </div>
 
-        <motion.div
-          ref={containerRef}
-          className="cursor-grab active:cursor-grabbing overflow-hidden"
-        >
+        {/* touch-pan-y allows normal vertical page scrolling while dragging horizontally */}
+        <div ref={containerRef} className="overflow-hidden px-4 touch-pan-y">
           <motion.div
             drag="x"
             dragConstraints={{ right: 0, left: -scrollWidth }}
-            className="flex gap-8 w-max px-4"
+            dragElastic={0.1} // Makes the edge "bounce" feel natural
+            whileTap={{ cursor: "grabbing" }}
+            className="flex gap-8 w-max cursor-grab active:cursor-grabbing"
           >
             {featuredArt.map((art) => (
               <motion.div
                 key={art.id}
-                className="relative w-100 h-125 bg-zinc-900 group shadow-2xl overflow-hidden rounded-sm"
+                // flex-shrink-0 is REQUIRED so cards don't shrink to fit the screen width
+                className="relative w-80 md:w-100 h-125 bg-zinc-900 group shadow-2xl overflow-hidden rounded-sm flex-shrink-0"
               >
                 <div
-                  className="absolute inset-0 bg-cover bg-center grayscale-40 group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105"
+                  className="absolute inset-0 bg-cover bg-center transition-all duration-1000 group-hover:scale-105"
                   style={{ backgroundImage: `url(${art.path})` }}
                 />
-                <div className="absolute inset-0 bg-linear-to-t from-black/90 via-transparent to-transparent opacity-80" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-80" />
                 <div className="absolute inset-0 p-8 flex flex-col justify-end">
                   <span className="text-accent font-bold italic text-[10px] tracking-[0.4em] mb-1 uppercase">
                     {art.type}
@@ -98,10 +109,10 @@ const Gallery = () => {
               </motion.div>
             ))}
           </motion.div>
-        </motion.div>
+        </div>
       </div>
 
-      {/* 2. EXPANDABLE ARCHIVE GRID */}
+      {/* 2. ARCHIVE GRID (remains unchanged but included for context) */}
       <div className="flex flex-col items-center px-4">
         <button
           onClick={() => setShowAll(!showAll)}
@@ -120,17 +131,17 @@ const Gallery = () => {
         <AnimatePresence>
           {showAll && (
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 overflow-hidden"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 20 }}
+              className="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
             >
               {archiveArt.map((art) => (
                 <motion.div
                   key={art.id}
                   initial={{ scale: 0.9, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
-                  className="aspect-3/4 bg-zinc-800 relative group overflow-hidden"
+                  className="aspect-[3/4] bg-zinc-800 relative group overflow-hidden"
                 >
                   <div
                     className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
