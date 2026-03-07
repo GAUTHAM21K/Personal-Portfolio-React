@@ -114,7 +114,8 @@ const Hero = ({ isDev }) => {
                 GAUTHAM.ART
               </h1>
               <p className="text-lg md:text-2xl font-light italic opacity-70 max-w-2xl px-4">
-                “Unveiling the silent dialogue between color and form.”
+                As an artist, I focus on translating imagination into visual
+                stories, where every hue and stroke carries meaning.
               </p>
             </div>
           )}

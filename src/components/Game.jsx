@@ -245,7 +245,8 @@ const CreativeChronicle = () => {
                     <span
                       className={`text-[11px] md:text-xs font-black italic ${isUnlocked ? "text-black" : "text-black/60"}`}
                     >
-                      {m.name}
+                      {isUnlocked ? m.name : "???"}{" "}
+                      {/* This line hides the skill name */}
                     </span>
                   </div>
                   {isUnlocked ? (
