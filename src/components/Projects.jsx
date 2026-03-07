@@ -124,7 +124,7 @@ const Projects = ({ isDev }) => {
           {proj.desc}
         </p>
         <div className="flex flex-wrap gap-2 mb-5 md:mb-6">
-          {proj.tech.map((t) => (
+          {proj.tech?.map((t) => (
             <span
               key={t}
               className="text-[8px] md:text-[9px] px-2 py-1 border border-accent/20 text-accent bg-accent/5"
@@ -233,9 +233,9 @@ const Projects = ({ isDev }) => {
           <AnimatePresence>
             {showAll && (
               <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                exit={{ opacity: 0, height: 0 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
                 className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 overflow-hidden"
               >
                 {projectArchive.map((proj) => (

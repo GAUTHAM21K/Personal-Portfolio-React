@@ -12,8 +12,12 @@
   "dependencies": {
     "@lottiefiles/dotlottie-react": "^0.18.3",
     "@lottiefiles/react-lottie-player": "^3.6.0",
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.5.0",
     "@splinetool/react-spline": "^4.1.0",
+    "@splinetool/runtime": "^1.12.67",
     "@tailwindcss/vite": "^4.2.1",
+    "@types/three": "^0.183.1",
     "canvas-confetti": "^1.9.4",
     "clsx": "^2.1.1",
     "emailjs-com": "^3.2.0",
@@ -25,6 +29,7 @@
     "react-dom": "^19.2.4",
     "tailwind-merge": "^3.5.0",
     "tailwindcss": "^4.2.1",
+    "three": "^0.183.2",
     "typewriter": "^9.2.0",
     "typewriter-effect": "^2.22.0"
   },
