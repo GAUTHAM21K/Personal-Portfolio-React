@@ -45,6 +45,8 @@ const Gallery = () => {
     { id: "a14", path: "/art/14.jpeg" },
     { id: "a15", path: "/art/15.jpeg" },
     { id: "a16", path: "/art/16.jpg" },
+    { id: "a17", path: "/art/17.jpg" },
+    { id: "a18", path: "/art/18.jpg" },
   ];
 
   // Updated useEffect to handle dynamic resizing and image loading
