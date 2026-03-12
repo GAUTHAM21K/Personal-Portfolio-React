@@ -41,7 +41,7 @@ A modern, interactive personal portfolio website showcasing my work as a Flutter
 - **React** 19.2 - Modern UI library
 - **Vite** 7.3 - Lightning-fast build tool
 - **Tailwind CSS** 4.2 - Utility-first CSS framework
-- **TypeScript** - Type safety
+- **JavaScript**
 
 ### Animations & 3D
 

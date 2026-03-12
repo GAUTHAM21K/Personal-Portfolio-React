@@ -45,6 +45,11 @@ const Projects = ({ isDev }) => {
 
   const projectArchive = [
     {
+      title: "Resume Tailor",
+      tech: ["Python", "Google Gemini API"],
+      desc: "AI-powered Python application that automatically tailors resumes to specific job descriptions. Implements STAR method optimization.",
+    },
+    {
       title: "Real Time Project Management Website",
       tech: ["React", "Django", "Socket.io"],
       desc: "real-time project management application built with Django, WebSockets, and React.",
